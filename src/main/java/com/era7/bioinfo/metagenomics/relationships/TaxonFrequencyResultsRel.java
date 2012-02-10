@@ -15,6 +15,10 @@ public class TaxonFrequencyResultsRel extends BasicRelationship{
 
     public static final String NAME = "TAXON_FREQUENCY_RESULTS_REL";
     
+    /** Least common ancestor absolute frequency value **/
+    public static final String LCA_ABSOLUTE_VALUE_PROPERTY = "lca_absolute_value";
+    /** Least common ancestor accumulated absolute frequency value **/
+    public static final String LCA_ACCUMULATED_ABSOLUTE_VALUE_PROPERTY = "lca_accumulated_absolute_value";
     public static final String ABSOLUTE_VALUE_PROPERTY = "absolute_value";
     public static final String ACCUMULATED_ABSOLUTE_VALUE_PROPERTY = "accumulated_absolute_value";
 
