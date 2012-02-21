@@ -2,8 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.era7.bioinfo.metagenomics.relationships;
-
+package com.era7.bioinfo.mg7.relationships;
 
 import com.era7.bioinfo.bioinfoneo4j.BasicRelationship;
 import org.neo4j.graphdb.Relationship;
@@ -12,11 +11,11 @@ import org.neo4j.graphdb.Relationship;
  *
  * @author Pablo Pareja Tobes <ppareja@era7.com>
  */
-public class ReadResultLCANcbiTaxonRel extends BasicRelationship{
+public class SamplesRel extends BasicRelationship{
 
-    public static final String NAME = "READ_RESULT_LCA_NCBI_TAXON";
+    public static final String NAME = "SAMPLES";
 
-    public ReadResultLCANcbiTaxonRel(Relationship rel){
+    public SamplesRel(Relationship rel){
         super(rel);
     }
 
