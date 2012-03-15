@@ -19,6 +19,8 @@ import org.neo4j.graphdb.index.Index;
  */
 public class MG7Manager extends Bio4jManager{
     
+    private static boolean alreadyCreated = false;
+    
     public static String READ_RESULT_SAMPLE_TAXON_INDEX_NAME = "read_result_sample_taxon_index_name";
     public static String READ_RESULT_SAMPLE_LCA_TAXON_INDEX_NAME = "read_result_sample_lca_taxon_index_name";
     
@@ -35,7 +37,7 @@ public class MG7Manager extends Bio4jManager{
     
     public MG7Manager(String dbFolder){
         
-        super(dbFolder, true, false);
+        super(dbFolder, firstTimeCalled(), false);
                 
         Map<String,String> indexProps = new HashMap<String, String>();
         indexProps.put(PROVIDER_ST, LUCENE_ST);
@@ -63,6 +65,15 @@ public class MG7Manager extends Bio4jManager{
     
     public Index<Node> getReadResultLCATaxonSampleIndex(){        
         return readResultLCATaxonSampleIndex;
+    }
+    
+    private static synchronized boolean firstTimeCalled() {
+        if (!alreadyCreated) {
+            alreadyCreated = true;
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }
