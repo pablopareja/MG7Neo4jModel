@@ -1,6 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2011-2012  "MG7"
+ *
+ * This file is part of MG7
+ *
+ * MG7 is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 package com.era7.bioinfo.mg7;
 
@@ -39,15 +51,15 @@ public class MG7Manager extends Bio4jManager{
         
         super(dbFolder, firstTimeCalled(), false);
                 
-        Map<String,String> indexProps = new HashMap<String, String>();
-        indexProps.put(PROVIDER_ST, LUCENE_ST);
-        indexProps.put(TYPE_ST, EXACT_ST);
-                                
-        //----------node indexes-----------
-        sampleNameIndex = graphService.index().forNodes(SampleNode.SAMPLE_NAME_INDEX, indexProps);
-        readResultReadIdIndex = graphService.index().forNodes(ReadResultNode.READ_RESULT_READ_ID_INDEX, indexProps);      
-        readResultTaxonSampleIndex = graphService.index().forNodes(READ_RESULT_SAMPLE_TAXON_INDEX_NAME,indexProps);
-        readResultLCATaxonSampleIndex = graphService.index().forNodes(READ_RESULT_SAMPLE_LCA_TAXON_INDEX_NAME,indexProps);
+        initIndexes();
+        
+    }
+    
+    public MG7Manager(String dbFolder, boolean createUnderlyingService, boolean readOnlyMode){
+        
+        super(dbFolder, createUnderlyingService, readOnlyMode);
+                
+        initIndexes();
         
     }
     
@@ -74,6 +86,18 @@ public class MG7Manager extends Bio4jManager{
         } else {
             return false;
         }
+    }
+    
+    private void initIndexes(){
+        Map<String,String> indexProps = new HashMap<String, String>();
+        indexProps.put(PROVIDER_ST, LUCENE_ST);
+        indexProps.put(TYPE_ST, EXACT_ST);
+                                
+        //----------node indexes-----------
+        sampleNameIndex = graphService.index().forNodes(SampleNode.SAMPLE_NAME_INDEX, indexProps);
+        readResultReadIdIndex = graphService.index().forNodes(ReadResultNode.READ_RESULT_READ_ID_INDEX, indexProps);      
+        readResultTaxonSampleIndex = graphService.index().forNodes(READ_RESULT_SAMPLE_TAXON_INDEX_NAME,indexProps);
+        readResultLCATaxonSampleIndex = graphService.index().forNodes(READ_RESULT_SAMPLE_LCA_TAXON_INDEX_NAME,indexProps);
     }
     
 }
