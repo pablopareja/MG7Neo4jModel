@@ -14,8 +14,7 @@ import org.neo4j.graphdb.Node;
 public class HspNode extends BasicEntity{
 
     public static final String NODE_TYPE = HspNode.class.getCanonicalName();
-    
-    public static final String QUERY_LENGTH_PROPERTY = "query_length";
+        
     public static final String ALIGNMENT_LENGTH_PROPERTY = "alignment_length";
     public static final String IDENTITY_PROPERTY = "identity";
     public static final String EVALUE_PROPERTY = "evalue";
@@ -29,8 +28,7 @@ public class HspNode extends BasicEntity{
         super(n);
     }
 
-
-    public int getQueryLength(){    return Integer.parseInt(String.valueOf(node.getProperty(QUERY_LENGTH_PROPERTY)));}
+    
     public int getAlignmentLength(){    return Integer.parseInt(String.valueOf(node.getProperty(ALIGNMENT_LENGTH_PROPERTY)));}
     public int getIdentity(){   return Integer.parseInt(String.valueOf(node.getProperty(IDENTITY_PROPERTY)));}
     public String getEvalue(){  return String.valueOf(node.getProperty(EVALUE_PROPERTY));}
@@ -40,7 +38,6 @@ public class HspNode extends BasicEntity{
     public int getHspNum(){ return Integer.parseInt(String.valueOf(node.getProperty(HSP_NUM_PROPERTY)));}
    
 
-    public void setQueryLength(int value){  node.setProperty(QUERY_LENGTH_PROPERTY, value);}
     public void setAlignmentLength(int value){  node.setProperty(ALIGNMENT_LENGTH_PROPERTY, value);}
     public void setIdentity(int value){ node.setProperty(IDENTITY_PROPERTY, value);}
     public void setEvalue(String value){    node.setProperty(EVALUE_PROPERTY, value);}

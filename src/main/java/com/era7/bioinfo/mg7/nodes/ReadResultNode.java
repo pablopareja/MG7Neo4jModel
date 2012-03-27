@@ -32,6 +32,7 @@ public class ReadResultNode extends BasicEntity{
 
     public static final String READ_ID_PROPERTY = "id";
     public static final String READ_SEQUENCE_PROPERTY = "sequence";
+    public static final String QUERY_LENGTH_PROPERTY = "query_length";
 
 
     public ReadResultNode(Node n){
@@ -41,10 +42,12 @@ public class ReadResultNode extends BasicEntity{
 
     public String getReadId(){  return String.valueOf(node.getProperty(READ_ID_PROPERTY));}
     public String getReadSequence(){  return String.valueOf(node.getProperty(READ_SEQUENCE_PROPERTY));}
+    public int getQueryLength(){    return Integer.parseInt(String.valueOf(node.getProperty(QUERY_LENGTH_PROPERTY)));}
 
 
     public void setReadId(String value){    node.setProperty(READ_ID_PROPERTY, value);}
     public void setReadSequence(String value){    node.setProperty(READ_SEQUENCE_PROPERTY, value);}
+    public void setQueryLength(int value){  node.setProperty(QUERY_LENGTH_PROPERTY, value);}
     
 
     @Override
