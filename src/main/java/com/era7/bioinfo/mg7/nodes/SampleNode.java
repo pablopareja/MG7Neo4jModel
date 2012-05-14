@@ -29,6 +29,7 @@ public class SampleNode extends BasicEntity{
     public static final String SAMPLE_NAME_INDEX = "sample_name_index";
 
     public static final String NAME_PROPERTY = "name";
+    public static final String NUMBER_OF_READS_PROPERTY = "number_of_reads";
 
 
     public SampleNode(Node n){
@@ -37,9 +38,11 @@ public class SampleNode extends BasicEntity{
 
 
     public String getName(){    return String.valueOf(node.getProperty(NAME_PROPERTY));}
+    public int getNumberOfReads(){  return Integer.parseInt(String.valueOf(node.getProperty(NUMBER_OF_READS_PROPERTY)));}
 
 
     public void setName(String value){  node.setProperty(NAME_PROPERTY, value);}
+    public void setNumberOfReads(int value){  node.setProperty(NUMBER_OF_READS_PROPERTY, value);}
 
 
     @Override
@@ -59,7 +62,7 @@ public class SampleNode extends BasicEntity{
 
     @Override
     public String toString(){
-        return "name = " + getName();
+        return "name = " + getName() + "\nnumber of reads: " + getNumberOfReads();
     }
 
 }

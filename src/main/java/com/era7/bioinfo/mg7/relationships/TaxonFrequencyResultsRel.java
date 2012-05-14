@@ -25,7 +25,7 @@ import org.neo4j.graphdb.Relationship;
  */
 public class TaxonFrequencyResultsRel extends BasicRelationship{
 
-    public static final String NAME = "TAXON_FREQUENCY_RESULTS_REL";
+    public static final String NAME = "TAXON_FREQUENCY_RESULTS";
     
     /** Least common ancestor absolute frequency value **/
     public static final String LCA_ABSOLUTE_VALUE_PROPERTY = "lca_absolute_value";
