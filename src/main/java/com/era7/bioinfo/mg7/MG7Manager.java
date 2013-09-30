@@ -16,7 +16,7 @@
  */
 package com.era7.bioinfo.mg7;
 
-import com.era7.bioinfo.bio4jmodel.util.Bio4jManager;
+import com.era7.bioinfo.bio4j.neo4j.model.util.Bio4jManager;
 import com.era7.bioinfo.mg7.nodes.ReadResultNode;
 import com.era7.bioinfo.mg7.nodes.SampleNode;
 import java.util.HashMap;

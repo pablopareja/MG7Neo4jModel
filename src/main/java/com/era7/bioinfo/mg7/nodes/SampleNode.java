@@ -29,7 +29,10 @@ public class SampleNode extends BasicEntity{
     public static final String SAMPLE_NAME_INDEX = "sample_name_index";
 
     public static final String NAME_PROPERTY = "name";
-    public static final String NUMBER_OF_READS_PROPERTY = "number_of_reads";
+    public static final String NUMBER_OF_READS_WITHOUT_FILTERING_PROPERTY = "number_of_reads_without_filtering";
+    public static final String NUMBER_OF_READS_THAT_COMPLIED_WITH_THRESHOLD_PROPERTY = "number_of_reads_that_complied_with_threshold";
+    public static final String NUMBER_OF_READS_WITH_TAXONOMY_ASSOCIATED_PROPERTY = "number_of_reads_with_taxonomy_associated";
+    public static final String NUMBER_OF_READS_FOR_DIRECT_MODE_PROPERTY = "number_of_reads_for_direct_mode";
 
 
     public SampleNode(Node n){
@@ -38,11 +41,17 @@ public class SampleNode extends BasicEntity{
 
 
     public String getName(){    return String.valueOf(node.getProperty(NAME_PROPERTY));}
-    public int getNumberOfReads(){  return Integer.parseInt(String.valueOf(node.getProperty(NUMBER_OF_READS_PROPERTY)));}
+    public int getNumberOfReadsWithoutFiltering(){  return Integer.parseInt(String.valueOf(node.getProperty(NUMBER_OF_READS_WITHOUT_FILTERING_PROPERTY)));}
+    public int getNumberOfReadsThatCompliedWithThreshold(){  return Integer.parseInt(String.valueOf(node.getProperty(NUMBER_OF_READS_THAT_COMPLIED_WITH_THRESHOLD_PROPERTY)));}
+    public int getNumberOfReadsWithTaxonomyAssociated(){  return Integer.parseInt(String.valueOf(node.getProperty(NUMBER_OF_READS_WITH_TAXONOMY_ASSOCIATED_PROPERTY)));}
+    public int getNumberOfReadsForDirectMode(){  return Integer.parseInt(String.valueOf(node.getProperty(NUMBER_OF_READS_FOR_DIRECT_MODE_PROPERTY)));}
 
 
     public void setName(String value){  node.setProperty(NAME_PROPERTY, value);}
-    public void setNumberOfReads(int value){  node.setProperty(NUMBER_OF_READS_PROPERTY, value);}
+    public void setNumberOfReadsWithoutFiltering(int value){  node.setProperty(NUMBER_OF_READS_WITHOUT_FILTERING_PROPERTY, value);}
+    public void setNumberOfReadsThatCompliedWithThreshold(int value){  node.setProperty(NUMBER_OF_READS_THAT_COMPLIED_WITH_THRESHOLD_PROPERTY, value);}
+    public void setNumberOfReadsWithTaxonomyAssociated(int value){  node.setProperty(NUMBER_OF_READS_WITH_TAXONOMY_ASSOCIATED_PROPERTY, value);}
+    public void setNumberOfReadsForDirectMode(int value){  node.setProperty(NUMBER_OF_READS_FOR_DIRECT_MODE_PROPERTY, value);}
 
 
     @Override
@@ -62,7 +71,7 @@ public class SampleNode extends BasicEntity{
 
     @Override
     public String toString(){
-        return "name = " + getName() + "\nnumber of reads: " + getNumberOfReads();
+        return "name = " + getName();
     }
 
 }
